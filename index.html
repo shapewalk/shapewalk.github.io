@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="ShapeWalk: A Benchmark for Compositional Shape Editing through Language-Guided Chains"
+    />
+    <meta name="keywords" content="ShapeWalk, Compositional 3D, 3D Editing" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      ShapeWalk: A Benchmark for Compositional Shape Editing through
+      Language-Guided Chains
+    </title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="icon" href="./static/img/favicon.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs-bibtex@2.1.0/prism-bibtex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+
+    <style>
+      .shadow {
+        box-shadow: 0 0 10px rgb(164 155 155 / 65%) !important;
+      }
+
+      .shadow-sm {
+        box-shadow: 0 0 4px rgb(164 155 155 / 65%) !important;
+      }
+
+      pre {
+        margin: 1.2em 0 !important;
+      }
+
+      .copy-button {
+        position: relative;
+        float: right;
+        opacity: 0.5;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background-color: #f8f9fa !important;
+        transition: all 0.2s ease-in-out;
+        padding: 0;
+      }
+
+      .copy-button:hover {
+        cursor: pointer;
+        background-color: #e6e6e6 !important;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+
+      .footer {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        box-shadow: 0 0 10px rgb(164 155 155 / 20%) !important;
+      }
+
+      .footer .content {
+        margin-top: 0em;
+        margin-bottom: 0.75em;
+      }
+
+      #teaser {
+        max-width: 40%;
+      }
+
+      .subtitle {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+      }
+
+      .content-fig {
+        margin-top: 1em;
+      }
+
+      .external-link {
+        box-shadow: 0 0 2px rgb(164 155 155 / 65%) !important;
+        background-color: #363636 !important;
+        transition: all 0.2s ease-in-out;
+        margin-left: 0.3em;
+      }
+
+      .external-link:hover {
+        background-color: #b3b3b3 !important;
+      }
+
+      .close-sec {
+        padding: 1rem 1.5rem;
+      }
+
+      .notification {
+        margin-bottom: 0rem !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
+          <a class="navbar-item" href="TODO">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                ShapeWalk: A Benchmark for Compositional Shape Editing through
+                Language-Guided Chains
+              </h1>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="TODO"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href="TODO"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <!-- Dataset Link. -->
+                  <span class="link-block">
+                    <a
+                      href="TODO"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-download"></i>
+                      </span>
+                      <span>Download</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section close-sec">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered mb-6">
+          <img id="fullview" src="./static/img/TODO" alt="" width="800px" />
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <!--/ Paper video. -->
+      </div>
+    </section>
+
+    <!--
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3">📖 Citations</h2>
+            If our work is useful to your research, please consider citing our work:
+            </br>
+            </br>
+            <h3 class="title is-4">v1:</h3>
+            <pre class="shadow-sm rounded p-3 bg-dark"><button data-toggle="tooltip" data-placement="top" title="Copy BibTeX" class="copy-button" data-clipboard-target="#cite1"><span class="icon"><i class="fas fa-copy"></i></span></button><code class="language-bibtex"></pre>
+        </br>
+        </br>
+        </div>
+    </section>
+    -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="TODO">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="TODO" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                Page template adapted from
+                <a href="https://github.com/nerfies/nerfies.github.io"
+                  >NeRFies</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      var clipboard = new ClipboardJS(".copy-button");
+    </script>
+  </body>
+</html>
