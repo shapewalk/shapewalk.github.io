@@ -475,32 +475,37 @@
         var playIcon = overlay.getElementsByClassName("play-icon")[0];
         if (video.paused) {
           video.play();
-          // Change to play icon.
-          pauseIcon.style.display = "none";
-          playIcon.style.display = "block";
 
-          // Fade out play icon.
-          playIcon.style.opacity = 1;
-          var fadeEffect = setInterval(function () {
-            if (playIcon.style.opacity > 0) {
-              playIcon.style.opacity = parseFloat(playIcon.style.opacity) - 0.1;
-            } else {
-              clearInterval(fadeEffect);
-            }
-          }, 25);
+          // Change to play icon.
+          setTimeout(function () {
+            pauseIcon.style.display = "none";
+            playIcon.style.display = "block";
+            playIcon.style.opacity = 1;
+            var fadeEffect = setInterval(function () {
+              if (playIcon.style.opacity > 0) {
+                playIcon.style.opacity =
+                  parseFloat(playIcon.style.opacity) - 0.1;
+              } else {
+                clearInterval(fadeEffect);
+              }
+            }, 25);
+          }, 5);
         } else {
           video.pause();
+
           // Fade in pause icon.
-          pauseIcon.style.display = "block";
-          pauseIcon.style.opacity = 0;
-          var fadeEffect = setInterval(function () {
-            if (pauseIcon.style.opacity < 1) {
-              pauseIcon.style.opacity =
-                parseFloat(pauseIcon.style.opacity) + 0.1;
-            } else {
-              clearInterval(fadeEffect);
-            }
-          }, 25);
+          setTimeout(function () {
+            pauseIcon.style.display = "block";
+            pauseIcon.style.opacity = 0;
+            var fadeEffect = setInterval(function () {
+              if (pauseIcon.style.opacity < 1) {
+                pauseIcon.style.opacity =
+                  parseFloat(pauseIcon.style.opacity) + 0.1;
+              } else {
+                clearInterval(fadeEffect);
+              }
+            }, 25);
+          }, 5);
         }
       }
       $("video#test-vid").bind("progress", function (e) {
