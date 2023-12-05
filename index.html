@@ -84,7 +84,8 @@
       }
 
       #teaser {
-        max-width: 40%;
+        max-width: 80%;
+        margin-top: 25px;
       }
 
       .subtitle {
@@ -113,6 +114,31 @@
 
       .notification {
         margin-bottom: 0rem !important;
+      }
+
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+
+      .video-container {
+        position: relative;
+      }
+
+      .pause-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .pause-icon,
+      .play-icon {
+        font-size: 50px; /* Adjust the size of the icons */
+        color: rgb(117, 117, 117); /* Adjust the color of the icons */
+        position: absolute;
+        display: none;
+        top: -50px;
+        left: -25px;
       }
     </style>
   </head>
@@ -151,6 +177,9 @@
                 ShapeWalk: A Benchmark for Compositional Shape Editing through
                 Language-Guided Chains
               </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"> Anonymous Submission </span>
+              </div>
 
               <div class="column has-text-centered">
                 <div class="publication-links">
@@ -197,6 +226,20 @@
         </div>
       </div>
     </section>
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <h2 class="subtitle has-text-centered">
+            <span class="dnerf">ShapeWalk</span> is a <b>scalable</b> synthetic
+            dataset enabling the evaluation of fine-grained, language-guided
+            <b>compositional shape editing</b>.
+          </h2>
+          <video id="teaser" autoplay muted loop playsinline>
+            <source src="static/videos/teaser_vid.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
 
     <section class="section close-sec">
       <div class="container is-max-desktop">
@@ -204,13 +247,31 @@
         <div class="columns is-centered has-text-centered mb-6">
           <img id="fullview" src="./static/img/TODO" alt="" width="800px" />
         </div>
-        <div class="columns is-centered has-text-centered">
+        <div class="columns is-centered has-text-centered mb-4">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
-              <p></p>
-              <p></p>
-              <p></p>
+              <p>
+                We introduce ShapeWalk, a carefully curated dataset designed to
+                advance the field of language-guided compositional shape
+                editing. The dataset consists of 158K unique shapes connected
+                through 26K edit chains, with an average length of 14 chained
+                shapes. Each consecutive pair of shapes is associated with
+                precise language instructions describing the applied edits. We
+                synthesize edit chains by reconstructing and interpolating
+                shapes sampled from a realistic CAD-designed 3D dataset in the
+                parameter space of a shape program. We leverage rule-based
+                methods and language models to generate natural language prompts
+                corresponding to each edit. To illustrate the practicality of
+                our contribution, we train neural editor modules in the latent
+                space of shape autoencoders, and demonstrate the ability of our
+                dataset to enable a variety of language-guided shape edits.
+                Finally, we introduce multi-step editing metrics to benchmark
+                the capacity of our models to perform recursive shape edits. We
+                hope that our work will enable further study of compositional
+                language-guided shape editing, and finds application in 3D CAD
+                design and interactive modeling.
+              </p>
             </div>
           </div>
         </div>
@@ -218,6 +279,146 @@
 
         <!-- Paper video. -->
         <!--/ Paper video. -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <!-- Pipeline -->
+          <div class="column">
+            <div class="content has-text-justified">
+              <h2 class="title is-3">⚡ Pipeline</h2>
+              <p>
+                We introduce a synthetic dataset of language-guided chained
+                edits, with associated language instructions and
+                <b>ground-truth</b> edited shapes. We generate the dataset by
+                reconstructing and interpolating shapes sampled from a realistic
+                CAD-designed 3D dataset in the parameter space of a shape
+                program.
+              </p>
+              <video autoplay muted loop playsinline class="pipeline-vid">
+                <source src="static/videos/gen_pipeline.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <!--/ Pipeline -->
+
+          <!-- Fine-grained, specific edits -->
+          <div class="column ml-3">
+            <div class="column has-text-justified">
+              <h2 class="title is-3">🎯 Targeted Edits</h2>
+              <p>
+                We compare the ShapeTalk dataset (top) with our work (bottom).
+                For an equivalent edit instruction (in green), ShapeTalk
+                provides pairs of shapes with many factors of variation, while
+                our dataset provides a pair of shapes with a single clear
+                varying factor, alongside an edit magnitude.
+              </p>
+              <img
+                src="static/img/shapetalk_comp.png"
+                alt=""
+                class="content-fig"
+                style="margin-top: 3em"
+              />
+            </div>
+          </div>
+          <!-- Fine-grained, specific edits -->
+        </div>
+
+        <!-- Dataset -->
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">♻️ Compositional Editing</h2>
+            <div class="columns is-centered">
+              <div class="column has-text-justified">
+                <p
+                  style="margin-bottom: -1em; z-index: 999; position: relative"
+                >
+                  We show that training a neural editor module in the latent
+                  space of a shape autoencoder using our synthetic dataset
+                  enables a variety of language-guided shape edits. We show
+                  examples of shape edits learned using our synthetic data, in
+                  the space of a simple pointcloud autoencoder.
+                </p>
+
+                <div class="video-container" style="margin-top: -1em">
+                  <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    onclick="togglePlayPause(this);"
+                  >
+                    <source
+                      src="static/videos/edit_examples.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div class="pause-overlay">
+                    <div class="pause-icon">
+                      <i class="fas fa-pause is-size-1"></i>
+                    </div>
+                    <div class="play-icon">
+                      <i class="fas fa-play is-size-1"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered">
+              <div
+                class="has-text-centered"
+                style="margin-top: -4em; margin-bottom: 2em; z-index: 999"
+              >
+                <p class="is-size-7">👆 Click to pause/play again.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dataset -->
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">🪑 Dataset</h2>
+            <div class="columns is-centered">
+              <div class="column has-text-justified">
+                <p>
+                  We showcase sampled chains from our dataset. For each chain
+                  edge, we show the corresponding language instruction
+                  describing the parameter changes necessary to transition from
+                  one shape to the next. Generated shape chains are realistic
+                  and diverse, and focus on fine-grained shape details.
+                </p>
+                <div class="video-container" style="margin-top: 2em">
+                  <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    onclick="togglePlayPause(this);"
+                  >
+                    <source
+                      src="static/videos/dataset_anim.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div class="pause-overlay">
+                    <div class="pause-icon">
+                      <i class="fas fa-pause is-size-1"></i>
+                    </div>
+                    <div class="play-icon">
+                      <i class="fas fa-play is-size-1"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="has-text-centered">
+                  <p class="is-size-7">👆 Click to pause/play again.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -263,6 +464,42 @@
 
     <script type="text/javascript">
       var clipboard = new ClipboardJS(".copy-button");
+      function togglePlayPause(video) {
+        // Get play/pause button.
+        var overlay =
+          video.parentElement.getElementsByClassName("pause-overlay")[0];
+        var pauseIcon = overlay.getElementsByClassName("pause-icon")[0];
+        var playIcon = overlay.getElementsByClassName("play-icon")[0];
+        if (video.paused) {
+          video.play();
+          // Change to play icon.
+          pauseIcon.style.display = "none";
+          playIcon.style.display = "block";
+
+          // Fade out play icon.
+          playIcon.style.opacity = 1;
+          var fadeEffect = setInterval(function () {
+            if (playIcon.style.opacity > 0) {
+              playIcon.style.opacity = parseFloat(playIcon.style.opacity) - 0.1;
+            } else {
+              clearInterval(fadeEffect);
+            }
+          }, 25);
+        } else {
+          video.pause();
+          // Fade in pause icon.
+          pauseIcon.style.display = "block";
+          pauseIcon.style.opacity = 0;
+          var fadeEffect = setInterval(function () {
+            if (pauseIcon.style.opacity < 1) {
+              pauseIcon.style.opacity =
+                parseFloat(pauseIcon.style.opacity) + 0.1;
+            } else {
+              clearInterval(fadeEffect);
+            }
+          }, 25);
+        }
+      }
     </script>
   </body>
 </html>

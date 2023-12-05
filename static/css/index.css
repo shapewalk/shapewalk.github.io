@@ -87,3 +87,9 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.pipeline-vid {
+  margin-top: -2em;
+  z-index: -999;
+  position: relative;
+}
