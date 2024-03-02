@@ -4,13 +4,12 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="ShapeWalk: A Benchmark for Compositional Shape Editing through Language-Guided Chains"
+      content="ShapeWalk: Compositional Shape Editing through Language-Guided Chains"
     />
     <meta name="keywords" content="ShapeWalk, Compositional 3D, 3D Editing" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      ShapeWalk: A Benchmark for Compositional Shape Editing through
-      Language-Guided Chains
+      ShapeWalk: Compositional Shape Editing through Language-Guided Chains
     </title>
 
     <link
@@ -174,11 +173,22 @@
           <div class="columns is-centered">
             <div class="column has-text-centered">
               <h1 class="title is-1 publication-title">
-                ShapeWalk: A Benchmark for Compositional Shape Editing through
-                Language-Guided Chains
+                ShapeWalk: Compositional Shape Editing through Language-Guided
+                Chains
               </h1>
               <div class="is-size-5 publication-authors">
-                <span class="author-block"> Anonymous Submission </span>
+                <span class="author-block">
+                  <a href="https://habibslim.github.io/">Habib Slim</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.mohamed-elhoseiny.com/"
+                    >Mohamed Elhoseiny</a
+                  >
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">KAUST</span>
               </div>
 
               <div class="column has-text-centered">
@@ -332,6 +342,50 @@
         <!-- Dataset -->
         <div class="columns is-centered">
           <div class="column is-full-width">
+            <h2 class="title is-3">🪑 Synthetic Dataset</h2>
+            <div class="columns is-centered">
+              <div class="column has-text-justified">
+                <p>
+                  We showcase generated synthetic chains using our method. For
+                  each chain edge, we show the corresponding language
+                  instruction describing the parameter changes necessary to
+                  transition from one shape to the next. Generated shape chains
+                  are realistic and diverse, and focus on fine-grained shape
+                  details.
+                </p>
+                <div class="video-container" style="margin-top: 2em">
+                  <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    onclick="togglePlayPause(this);"
+                  >
+                    <source
+                      src="static/videos/dataset_anim_compressed.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div class="pause-overlay">
+                    <div class="pause-icon">
+                      <i class="fas fa-pause is-size-1"></i>
+                    </div>
+                    <div class="play-icon">
+                      <i class="fas fa-play is-size-1"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="has-text-centered">
+                  <p class="is-size-7">👆 Click to pause/play again.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editing -->
+        <div class="columns is-centered">
+          <div class="column is-full-width">
             <h2 class="title is-3">♻️ Compositional Editing</h2>
             <div class="columns is-centered">
               <div class="column has-text-justified">
@@ -377,46 +431,242 @@
                 <p class="is-size-7">👆 Click to pause/play again.</p>
               </div>
             </div>
-          </div>
-        </div>
+            <p
+              style="
+                margin-bottom: 1cm;
+                margin-top: -1em;
+                z-index: 999;
+                position: relative;
+              "
+            >
+              We also experiment with a more complex transformer-based diffusion
+              model operating in the latent space of 3DS2VecSet, a global latent
+              set representation. We show generated meshes following a variety
+              of language-guided edits below, at every step of the diffusion
+              process. Generated edits are of high quality, and enable
+              fine-grained shape changes (e.g. decreasing legs thickness) as
+              well as complex layout changes (e.g. adding a slatted backrest).
+            </p>
 
-        <!-- Dataset -->
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <h2 class="title is-3">🪑 Dataset</h2>
-            <div class="columns is-centered">
-              <div class="column has-text-justified">
-                <p>
-                  We showcase sampled chains from our dataset. For each chain
-                  edge, we show the corresponding language instruction
-                  describing the parameter changes necessary to transition from
-                  one shape to the next. Generated shape chains are realistic
-                  and diverse, and focus on fine-grained shape details.
-                </p>
-                <div class="video-container" style="margin-top: 2em">
-                  <video
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    onclick="togglePlayPause(this);"
-                  >
-                    <source
-                      src="static/videos/dataset_anim_compressed.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                  <div class="pause-overlay">
-                    <div class="pause-icon">
-                      <i class="fas fa-pause is-size-1"></i>
+            <div class="columns is-centered" style="margin-top: -2em">
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/decrease_chair_width_fairly.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
                     </div>
-                    <div class="play-icon">
-                      <i class="fas fa-play is-size-1"></i>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/decrease_chair_width_fairly.png"
+                        alt=""
+                        width="200px"
+                      />
                     </div>
                   </div>
                 </div>
-                <div class="has-text-centered">
-                  <p class="is-size-7">👆 Click to pause/play again.</p>
+              </div>
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/raise_seat_height.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/raise_seat_height.png"
+                        alt=""
+                        width="180px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered" style="margin-top: -4em">
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/decrease_legs_thickness.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/decrease_legs_thickness_substantially.png"
+                        alt=""
+                        width="170px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/change_to_pedestal_base.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/change_to_pedestal_base.png"
+                        alt=""
+                        width="200px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-centered" style="margin-top: -4em">
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/change_to_slatted_backrest_with_vertical_rails.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/change_to_slatted_backrest_with_vertical_rails.png"
+                        alt=""
+                        width="190px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="columns is-centered">
+                <div class="column has-text-justified">
+                  <div class="video-container">
+                    <video
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      onclick="togglePlayPause(this);"
+                    >
+                      <source
+                        src="static/videos/diff/decrease_seat_curvature_substantially.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="pause-overlay">
+                      <div class="pause-icon">
+                        <i class="fas fa-pause is-size-1"></i>
+                      </div>
+                      <div class="play-icon">
+                        <i class="fas fa-play is-size-1"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="has-text-centered"
+                      style="margin-top: -3em; margin-bottom: 2em; z-index: 999"
+                    >
+                      <img
+                        src="img/decrease_seat_curvature_substantially.png"
+                        alt=""
+                        width="190px"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
